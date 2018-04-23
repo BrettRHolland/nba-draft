@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap', '~> 4.1.0'
+gem 'jquery-rails'
 gem 'react-rails'
 gem 'webpacker'
 
