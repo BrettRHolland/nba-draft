@@ -1,1 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
+
+$font-family-sans-serif: 'Poppins', sans-serif;
+$border-width: 1px !default;
+$border-color: #2B3238 !default;
+
 @import "bootstrap";
+
+body {
+  background: #232524;
+  color: #FFF;
+}
+
+header {
+  border-bottom: 2px solid #2B3238;
+  // filter: drop-shadow(0 0 5px #1B8CFA);
+}
+
+a.navbar-brand {
+  color: #FFF;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.75rem 0;
+}
+
+i {
+  background: #1487CD;
+  color: #FFF;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+}
+
+.fas {
+  line-height: 1.5;
+}
+
+.votes {
+  background: #ECB34D;
+  color: #FFF;
+  padding: 0.5rem 0.75rem;
+}
+
+.secondary-text {
+  color: #BBBBBB;
+}

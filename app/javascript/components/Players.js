@@ -7,7 +7,7 @@ class HomeContainer extends Component {
 		this.state = {
 			players: []
 		};
-		this.handleUpVote = this.handleUpVote.bind(this);
+    this.handleUpVote = this.handleUpVote.bind(this);
 	}
 
 	componentDidMount() {
@@ -29,12 +29,49 @@ class HomeContainer extends Component {
 			})
 			.catch(error => console.error(`Error in fetch: ${error.message}`));
 	}
-  
+
+  handleUpVote(id, votes) {
+		let newVoteCount = votes + 1;
+		let playerId = id;
+		let submission = {
+			id: playerId,
+			votes: newVoteCount
+		};
+    fetch(`/api/v1/players/${submission.id}`, {
+        credentials: "same-origin",
+        method: "PATCH",
+        body: JSON.stringify(submission),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            return response;
+          } else {
+            let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+            throw error;
+          }
+        })
+        .then(response => response.json())
+        .then(body => {
+          this.setState({ players: body.players });
+        })
+        .catch(error => console.error(`Error in fetch: ${error.message}`));
+	}
+
+
+
 	render() {
 		let { players } = this.state;
 		let rank = 0;
 		let showPosts = players.map(player => {
 			rank = rank + 1;
+      let handleUpVoteClick = () => {
+				this.handleUpVote(player.id, player.votes);
+			};
 			return (
 				<Player
 					key={player.id}
@@ -48,6 +85,7 @@ class HomeContainer extends Component {
 					year={player.votes}
 					birth={player.birth}
 					votes={player.votes}
+          handleUpVoteClick={handleUpVoteClick}
 				/>
 			);
 		});
