@@ -6,18 +6,18 @@ const Player = props => {
 			<div className="col-auto pr-3 h5 secondary-text">{props.rank}.</div>
 			<div className="col">
 				<div className="row align-items-center">
-					<div className="col-8">
+					<div className="col-sm-6 col-md-8">
 						<div className="row">
 							<div className="col-12 h5">{props.name}</div>
-							<div className="col-auto secondary-text">{props.team}</div>
-							<div className="col-auto secondary-text">{props.position}</div>
-							<div className="col-auto secondary-text">
+							<div className="col-sm-12 col-md-auto secondary-text">{props.team}</div>
+							<div className="col-sm-12 col-md-auto secondary-text">{props.position}</div>
+							<div className="col-sm-12 col-md-auto secondary-text">
 								{props.height} inches
 							</div>
-							<div className="col-auto secondary-text">{props.weight} lbs</div>
+							<div className="col-sm-12 col-md-auto secondary-text">{props.weight} lbs</div>
 						</div>
 					</div>
-					<div className="col-4 text-right">
+					<div className="col-sm-6 col-md-4 text-right">
 						<span className="votes rounded">{props.votes}</span>
 						<i className="fas fa-chevron-up ml-2 rounded" onClick={props.handleUpVoteClick} />
 					</div>
