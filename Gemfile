@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap', '~> 4.1.0'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'jquery-rails'
 gem 'react-rails'
 gem 'webpacker'
