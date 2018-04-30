@@ -16,6 +16,14 @@ header {
   // filter: drop-shadow(0 0 5px #1B8CFA);
 }
 
+.player-name, .player-rank {
+  font-weight: 600;
+}
+
+.player-name {
+  cursor: pointer;
+}
+
 a.navbar-brand {
   color: #FFF;
   font-size: 1.5rem;
@@ -43,4 +51,44 @@ i {
 
 .secondary-text {
   color: #BBBBBB;
+}
+
+.modal-content {
+  background: #232524;
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #2B3238;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #2B3238;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #FFF;
+    opacity: 1;
+}
+
+.close:hover {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #FFF;
+    opacity: 1;
 }
