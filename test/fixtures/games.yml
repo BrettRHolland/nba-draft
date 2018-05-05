@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_id: 1
+  min: 1
+  fgM: 1
+  fgA: 1
+  fgP: 1
+  twoM: 1
+  twoA: 1
+  twoP: 1
+  threeM: 1
+  threeA: 1
+  threeP: 1
+  ftM: 1
+  ftA: 1
+  ftP: 1
+  oReb: 1
+  dReb: 1
+  tReb: 1
+  ast: 1
+  stl: 1
+  blk: 1
+  tov: 1
+  pf: 1
+  pts: 1
+  season: 1
+  games: 1
+  gamesStarted: 1
+
+two:
+  player_id: 1
+  min: 1
+  fgM: 1
+  fgA: 1
+  fgP: 1
+  twoM: 1
+  twoA: 1
+  twoP: 1
+  threeM: 1
+  threeA: 1
+  threeP: 1
+  ftM: 1
+  ftA: 1
+  ftP: 1
+  oReb: 1
+  dReb: 1
+  tReb: 1
+  ast: 1
+  stl: 1
+  blk: 1
+  tov: 1
+  pf: 1
+  pts: 1
+  season: 1
+  games: 1
+  gamesStarted: 1

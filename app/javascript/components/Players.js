@@ -25,7 +25,7 @@ class HomeContainer extends Component {
       .then(response => response.json())
       .then(body => {
         this.setState({
-          players: body.players
+          players: body
         });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -58,7 +58,7 @@ class HomeContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ players: body.players });
+        this.setState({ players: players });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -92,6 +92,17 @@ class HomeContainer extends Component {
           year={player.votes}
           birth={player.birth}
           votes={player.votes}
+          season={player.games[0].season}
+          games={player.games[0].games}
+          fgP={player.games[0].fgP}
+          threeP={player.games[0].threeP}
+          ftP={player.games[0].ftP}
+          tReb={player.games[0].tReb}
+          ast={player.games[0].ast}
+          stl={player.games[0].stl}
+          blk={player.games[0].blk}
+          tov={player.games[0].tov}
+          pts={player.games[0].pts}
           handleUpVoteClick={handleUpVoteClick}
         />
       );

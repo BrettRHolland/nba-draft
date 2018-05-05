@@ -2,7 +2,7 @@ class Api::V1::PlayersController < ApplicationController
   protect_from_forgery with: :null_session
   def index
     @players = Player.order(votes: :desc, name: :desc)
-    render json: { players: @players }
+    render :json => @players, :include => {:games => {:exclude => :gamesStarted}}
   end
 
   def update

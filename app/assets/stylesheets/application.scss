@@ -2,93 +2,105 @@
 
 $font-family-sans-serif: 'Poppins', sans-serif;
 $border-width: 1px !default;
-$border-color: #2B3238 !default;
+$border-color: #292b2d !default;
 
-@import "bootstrap";
+@import 'bootstrap';
 
 body {
-  background: #232524;
-  color: #FFF;
+  background: #202429;
+  color: #fff;
 }
 
 header {
-  border-bottom: 2px solid #2B3238;
+  background-color: #15181b;
+  // border-bottom: 2px solid #43464a;
   // filter: drop-shadow(0 0 5px #1B8CFA);
 }
 
-.player-name, .player-rank {
+.player-name,
+.player-rank {
   font-weight: 600;
 }
 
 .player-name {
   cursor: pointer;
+
+  &:hover {
+    color: #6e7174;
+  }
+}
+
+.player-details {
+  color: #6e7174;
 }
 
 a.navbar-brand {
-  color: #FFF;
+  color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
-  padding: 0.75rem 0;
+  padding: 1rem 0;
 }
 
 i {
-  background: #1487CD;
-  color: #FFF;
+  border: 1px solid #43464a;
+  color: #5d6063;
   cursor: pointer;
   font-weight: 700;
   padding: 0.5rem 0.75rem;
-}
+  transition: 0.5s;
 
-.fas {
-  line-height: 1.5;
+  &:hover {
+    background-color: #43464a;
+  }
+
+  &.fas {
+    line-height: 1.5;
+  }
 }
 
 .votes {
-  background: #ECB34D;
-  color: #FFF;
+  background: #f4a63a;
+  border: 1px solid #f4a63a;
+  color: #fff;
   padding: 0.5rem 0.75rem;
 }
 
-.secondary-text {
-  color: #BBBBBB;
-}
-
 .modal-content {
-  background: #232524;
+  background: #202429;
 }
 
 .modal-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 1rem;
-    border-bottom: 1px solid #2B3238;
-    border-top-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #43464a;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
 }
 
 .modal-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 1rem;
-    border-top: 1px solid #2B3238;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #43464a;
 }
 
 .close {
-    float: right;
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1;
-    color: #FFF;
-    opacity: 1;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  opacity: 1;
 }
 
 .close:hover {
-    float: right;
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1;
-    color: #FFF;
-    opacity: 1;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  opacity: 1;
 }
