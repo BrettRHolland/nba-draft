@@ -58,7 +58,7 @@ class HomeContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ players: players });
+        this.setState({ players: body });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }

@@ -9,7 +9,7 @@ class Api::V1::PlayersController < ApplicationController
     @player = Player.find(params[:id])
     if @player.update(player_params)
       @players = Player.order(votes: :desc, name: :desc)
-      render json: { players: @players }
+      render :json => @players, :include => {:games => {:exclude => :gamesStarted}}
     end
   end
 
