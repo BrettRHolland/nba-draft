@@ -5,9 +5,12 @@ class HomeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      players: []
+      players: [],
+      playerAid: '',
+      playerBid: ''
     };
     this.handleUpVote = this.handleUpVote.bind(this);
+    this.handleComparisonSelection = this.handleComparisonSelection.bind(this);
     this.convertInches = this.convertInches.bind(this);
   }
 
@@ -63,6 +66,17 @@ class HomeContainer extends Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  handleComparisonSelection(id) {
+    if (this.state.playerAid == '') {
+      this.setState({ playerAid: id });
+    } else {
+      this.setState({ playerBid: id });
+    }
+
+    console.log('A: ' + this.state.playerAid);
+    console.log('B: ' + this.state.playerBid);
+  }
+
   convertInches(inches) {
     let feetFromInches = Math.floor(inches / 12);
     let inchesRemainder = inches % 12;
@@ -77,6 +91,9 @@ class HomeContainer extends Component {
       rank = rank + 1;
       let handleUpVoteClick = () => {
         this.handleUpVote(player.id, player.votes);
+      };
+      let handleComparisonSelection = () => {
+        this.handleComparisonSelection(player.id);
       };
       let height = this.convertInches(player.height);
       return (
@@ -104,6 +121,7 @@ class HomeContainer extends Component {
           tov={player.games[0].tov}
           pts={player.games[0].pts}
           handleUpVoteClick={handleUpVoteClick}
+          handleComparisonSelection={handleComparisonSelection}
         />
       );
     });

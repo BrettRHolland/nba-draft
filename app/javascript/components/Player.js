@@ -19,6 +19,7 @@ const Player = props => {
             </div>
           </div>
           <div className="col-sm-6 col-md-4 text-right">
+            <i className="fas fa-balance-scale mr-2 rounded" onClick={props.handleComparisonSelection} />
             <span className="votes rounded">{props.votes}</span>
             <i className="fas fa-chevron-up ml-2 rounded" onClick={props.handleUpVoteClick} />
           </div>
