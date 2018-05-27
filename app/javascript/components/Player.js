@@ -2,6 +2,7 @@ import React from 'react';
 
 const Player = props => {
   let dataTarget = `#${props.id}`;
+  let iconClass = `fas fa-balance-scale mr-2 rounded ${props.selectedClass}`;
   return (
     <div className="row no-gutters pb-4 mb-4 border-bottom">
       <div className="col-auto pr-3 h5 player-details player-rank">{props.rank}.</div>
@@ -19,7 +20,7 @@ const Player = props => {
             </div>
           </div>
           <div className="col-sm-6 col-md-4 text-right">
-            <i className="fas fa-balance-scale mr-2 rounded" onClick={props.handleComparisonSelection} />
+            <i className={iconClass} onClick={props.handleComparisonSelection} />
             <span className="votes rounded">{props.votes}</span>
             <i className="fas fa-chevron-up ml-2 rounded" onClick={props.handleUpVoteClick} />
           </div>

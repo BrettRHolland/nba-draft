@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :players
-        resources :games
+      resources :games
+      resources :comparison
     end
   end
 end

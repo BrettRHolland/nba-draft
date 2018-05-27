@@ -6,8 +6,13 @@ class HomeContainer extends Component {
     super(props);
     this.state = {
       players: [],
+      active: '',
       playerAid: '',
-      playerBid: ''
+      playerBid: '',
+      playerA: [],
+      playerB: [],
+      comparePlayers: [],
+      view: 'votes'
     };
     this.handleUpVote = this.handleUpVote.bind(this);
     this.handleComparisonSelection = this.handleComparisonSelection.bind(this);
@@ -69,12 +74,32 @@ class HomeContainer extends Component {
   handleComparisonSelection(id) {
     if (this.state.playerAid == '') {
       this.setState({ playerAid: id });
+    } else if (this.state.playerBid != '') {
+      this.setState({ playerAid: this.state.playerBid });
+      this.setState({ playerBid: id });
     } else {
       this.setState({ playerBid: id });
     }
-
-    console.log('A: ' + this.state.playerAid);
-    console.log('B: ' + this.state.playerBid);
+    fetch(`/api/v1/comparison/${id}`, { credentials: 'same-origin' })
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        let allPlayers = this.state.comparePlayers;
+        allPlayers.push(body);
+        this.setState({
+          comparePlayers: allPlayers
+        });
+        console.log(this.state.comparePlayers);
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   convertInches(inches) {
@@ -85,9 +110,11 @@ class HomeContainer extends Component {
   }
 
   render() {
-    let { players } = this.state;
+    let { players, active, playerAid, playerBid, view } = this.state;
+    let renderView;
     let rank = 0;
     let showPosts = players.map(player => {
+      let selectedClass;
       rank = rank + 1;
       let handleUpVoteClick = () => {
         this.handleUpVote(player.id, player.votes);
@@ -95,6 +122,9 @@ class HomeContainer extends Component {
       let handleComparisonSelection = () => {
         this.handleComparisonSelection(player.id);
       };
+      if (player.id == playerAid || player.id == playerBid) {
+        selectedClass = 'selected';
+      }
       let height = this.convertInches(player.height);
       return (
         <Player
@@ -122,10 +152,15 @@ class HomeContainer extends Component {
           pts={player.games[0].pts}
           handleUpVoteClick={handleUpVoteClick}
           handleComparisonSelection={handleComparisonSelection}
+          selectedClass={selectedClass}
         />
       );
     });
-    return <div className="container mt-5">{showPosts}</div>;
+
+    if (view == 'votes') {
+      renderView = showPosts;
+    }
+    return <div className="container mt-5">{renderView}</div>;
   }
 }
 
