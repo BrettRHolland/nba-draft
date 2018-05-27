@@ -72,7 +72,11 @@ class HomeContainer extends Component {
   }
 
   handleComparisonSelection(id) {
-    if (this.state.playerAid == '') {
+    if (this.state.playerAid == id) {
+      this.setState({ playerAid: '' });
+    } else if (this.state.playerBid == id) {
+      this.setState({ playerBid: '' });
+    } else if (this.state.playerAid == '') {
       this.setState({ playerAid: id });
     } else if (this.state.playerBid != '') {
       this.setState({ playerAid: this.state.playerBid });
